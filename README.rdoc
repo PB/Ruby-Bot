@@ -1,6 +1,6 @@
 = \Simple ruby bot
 
-== Simple bot with you can talk ;)
+== Simple bot with whom you can talk ;)
 
 Use:
   
