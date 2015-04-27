@@ -1,0 +1,17 @@
+= \Simple ruby bot
+
+== Simple bot with you can talk ;)
+
+Use:
+  
+  $ ruby bot_data_to_yaml.rb fred.bot
+  $ ruby basic_client.rb Fred fred.bot
+
+Or you can run in browser (but first use bot_data_to_yaml.rb)
+
+  $ ruby bot_servlet.rb
+
+Go to browser -> http://localhost:1234/
+
+
+
