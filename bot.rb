@@ -1,9 +1,12 @@
 require 'yaml'
 require './wordplay'
 
+#Simple bot implementation
 class Bot
   attr_reader :name
 
+  #Bot initialization - setting bot name and
+  #loading bot data from YAML file
   def initialize(options)
     @name = options[:name] || "Bot without name"
     begin
@@ -13,14 +16,17 @@ class Bot
     end
   end
 
+  #Return random greeting response
   def greeting
     random_response :greeting
   end
 
+  #Return random goodbye response
   def farewell
     random_response :farewell
   end
 
+  #Response to input text from user
   def response_to(input)
     prepared_input = preprocess(input).downcase
     sentences = best_sentence(prepared_input)
@@ -30,20 +36,25 @@ class Bot
 
 
   private
+
+    #Choosing random response from array of responses 
     def random_response(key)
       random_index = rand(@data[:responses][key].length)
       @data[:responses][key][random_index].gsub(/\[name\]/, @name)
     end
 
+    #Process input data 
     def preprocess(input)
       perform_substitutions input
     end
 
+    #Substitute sentence and words form input to matching in data file 
     def perform_substitutions(input)
       @data[:presubs].each { |s| input.gsub!(s[0], s[1]) }
       input
     end
 
+    #Finding best sentence - the biggest number of key words
     def best_sentence(input)
       hot_words = @data[:responses].keys.select do |k|
         k.class == String && k =~ /^\w+$/
@@ -52,6 +63,7 @@ class Bot
       WordPlay.best_sentence(input.sentences, hot_words)
     end
 
+    #Seek of all possible responses from data file 
     def possible_responses(sentence)
       responses = []
 
