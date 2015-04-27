@@ -1,7 +1,7 @@
 require 'yaml'
 
 bot_data = {
-  presub: [
+  presubs: [
     ['dont', 'do not'],
     ["don't", 'do not'],
     ['youre', "you're"],
@@ -13,7 +13,7 @@ bot_data = {
     ['mom', 'family']
   ],
 
-  response: {
+  responses: {
     default: [
       "I don't understand.", 
       "What?",

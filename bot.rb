@@ -82,6 +82,6 @@ class Bot
       #if no response found use default response
       responses << @data[:responses][:default] if responses.empty?
       #one dimension array
-      responses.flattern
+      responses.flatten
     end 
 end

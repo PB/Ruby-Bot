@@ -1,6 +1,6 @@
 require './bot'
 
-bot = Bot.new(name: "Botty", date_file: './botty.bot')
+bot = Bot.new(name: "Fred", data_file: 'fred.bot')
 
 puts bot.greeting
 while input = gets and input.chomp != 'goodbye'
